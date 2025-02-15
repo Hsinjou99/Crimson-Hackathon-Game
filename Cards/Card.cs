@@ -8,7 +8,7 @@ namespace Game
 {
     internal class Card
     {
-        private string name;
+        protected string name;
 
         public string Name
         {
