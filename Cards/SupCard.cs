@@ -8,5 +8,15 @@ namespace Game
 {
     internal class SupCard : Card
     {
+        // TODO: types of supcard classes:
+        // DurabilityBoost
+        // AtkBoost
+        // Turn
+        private int value;
+
+        public int Value
+        {
+            get { return value; }
+        }
     }
 }
