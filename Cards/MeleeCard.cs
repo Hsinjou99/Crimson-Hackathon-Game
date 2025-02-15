@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class AtkCard : Card
+    internal class MeleeCard : Card
     {
     }
 }

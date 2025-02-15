@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class Card
+    internal class RangedCard : Card
     {
     }
 }
