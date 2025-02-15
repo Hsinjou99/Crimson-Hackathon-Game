@@ -8,13 +8,19 @@ namespace Game
 {
     internal class AtkCard : Card
     {
-        protected int attack_value;
         protected int durability;
         protected int max_durability;
 
+        public AtkCard () {
+            name = "attack";
+            card_value = 3;
+            max_durability = 4;
+            durability = max_durability;
+        }
+
         public int Atk_Val
         {
-            get { return attack_value; }
+            get { return card_value; }
         }
 
         public int Durability
@@ -27,5 +33,6 @@ namespace Game
         {
             get { return max_durability; }
         }
+
     }
 }

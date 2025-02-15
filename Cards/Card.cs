@@ -9,6 +9,7 @@ namespace Game
     internal class Card
     {
         protected string name;
+        protected int card_value;
 
         public string Name
         {
