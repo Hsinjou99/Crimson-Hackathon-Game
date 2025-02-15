@@ -8,5 +8,20 @@ namespace Game
 {
     internal class GameManager
     {
+        private Board board;
+
+        public GameManager()
+        {
+            board = new Board();
+        }
+
+        public void RunGame()
+        {
+
+        }
+        private void NextTurn()
+        {
+            
+        }
     }
 }

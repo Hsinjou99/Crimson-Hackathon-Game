@@ -15,6 +15,10 @@ namespace Game
         public Form1()
         {
             InitializeComponent();
+
+            GameManager game = new GameManager();
+            game.RunGame();
         }
+
     }
 }
