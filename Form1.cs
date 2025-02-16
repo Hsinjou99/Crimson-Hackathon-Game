@@ -87,18 +87,28 @@ namespace Game
             if (Game.Player.playable.Count >= 1)
             {
                 pictureBox1.BackColor = Game.Player.playable[0].CardColor;
+                pictureBox2.BackColor = Control.DefaultBackColor;
+                pictureBox3.BackColor = Control.DefaultBackColor;
+                pictureBox4.BackColor = Control.DefaultBackColor;
+                pictureBox5.BackColor = Control.DefaultBackColor;
             }
             if (Game.Player.playable.Count >= 2)
             {
                 pictureBox2.BackColor = Game.Player.playable[1].CardColor;
+                pictureBox3.BackColor = Control.DefaultBackColor;
+                pictureBox4.BackColor = Control.DefaultBackColor;
+                pictureBox5.BackColor = Control.DefaultBackColor;
             }
             if (Game.Player.playable.Count >= 3)
             {
                 pictureBox3.BackColor = Game.Player.playable[2].CardColor;
+                pictureBox4.BackColor = Control.DefaultBackColor;
+                pictureBox5.BackColor = Control.DefaultBackColor;
             }
             if (Game.Player.playable.Count >= 4)
             {
                 pictureBox4.BackColor = Game.Player.playable[3].CardColor;
+                pictureBox5.BackColor = Control.DefaultBackColor;
             }
             if (Game.Player.playable.Count == 5)
             {
@@ -112,18 +122,28 @@ namespace Game
             if (Game.Computer.playable.Count >= 1)
             {
                 pictureBox16.BackColor = Color.Black;
+                pictureBox15.BackColor = Control.DefaultBackColor;
+                pictureBox14.BackColor = Control.DefaultBackColor;
+                pictureBox13.BackColor = Control.DefaultBackColor;
+                pictureBox12.BackColor = Control.DefaultBackColor;
             }
             if (Game.Computer.playable.Count >= 2)
             {
                 pictureBox15.BackColor = Color.Black;
+                pictureBox14.BackColor = Control.DefaultBackColor;
+                pictureBox13.BackColor = Control.DefaultBackColor;
+                pictureBox12.BackColor = Control.DefaultBackColor;
             }
             if (Game.Computer.playable.Count >= 3)
             {
                 pictureBox14.BackColor = Color.Black;
+                pictureBox13.BackColor = Control.DefaultBackColor;
+                pictureBox12.BackColor = Control.DefaultBackColor;
             }
             if (Game.Computer.playable.Count >= 4)
             {
                 pictureBox13.BackColor = Color.Black;
+                pictureBox12.BackColor = Control.DefaultBackColor;
             }
             if (Game.Computer.playable.Count == 5)
             {
