@@ -16,14 +16,14 @@ namespace Game
         }
 
         public Player Player;
-        public Player computer;
+        public Player Computer;
         public bool volcanoState;
         public int turn;
 
         public Board()
         {
             Player = new Player();
-            computer = new Player();
+            Computer = new Player();
             volcanoState = false;
             turn = 1;
 

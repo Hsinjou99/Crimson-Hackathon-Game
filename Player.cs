@@ -34,6 +34,7 @@ namespace Game
 
             for (int indexer = 0; indexer < 4; indexer++) {
                 CardTypes randCard = RandomEnumValue<CardTypes>();
+                randCard = CardTypes.Atk;
                 if (randCard == CardTypes.Atk)
                 {
                     AtkCard atk = new AtkCard();
@@ -52,10 +53,37 @@ namespace Game
             }
         }
 
-        public void play_card (int card) {
+        public void play_card(int card)
+        {
             Card curr = playable[card];
             played.Add(curr);
             playable.RemoveAt(card);
+        }
+
+        public void draw_card()
+        {
+            int draw = 0;
+            while (playable.Count < 5 && draw < 2)
+            {
+                draw++;
+
+                CardTypes randCard = RandomEnumValue<CardTypes>();
+                if (randCard == CardTypes.Atk)
+                {
+                    AtkCard atk = new AtkCard();
+                    this.playable.Add(atk);
+                }
+                else if (randCard == CardTypes.Sup)
+                {
+                    SupCard sup = new SupCard();
+                    this.playable.Add(sup);
+                }
+                else if (randCard == CardTypes.Def)
+                {
+                    ProtCard prot = new ProtCard();
+                    this.playable.Add(prot);
+                }
+            }
         }
     }
 }
