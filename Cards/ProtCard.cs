@@ -12,7 +12,8 @@ namespace Game
         private int durability;
 
         public ProtCard () {
-            name = "protect";
+            name = "Protect";
+            description = "Blocks all damage for one turn.";
             color = Color.Blue;
             card_value = 10;
         }

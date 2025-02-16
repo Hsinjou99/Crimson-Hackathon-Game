@@ -10,7 +10,8 @@ namespace Game
     internal class SupCard : Card
     {
         public SupCard () {
-            name = "support";
+            name = "Support";
+            description = "Heals one attack card to full durability.";
             color = Color.Green;
             card_value = 5;
         }

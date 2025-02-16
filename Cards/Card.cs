@@ -10,6 +10,7 @@ namespace Game
     internal class Card
     {
         protected string name;
+        protected string description;
         protected int card_value;
         protected Color color;
 
@@ -22,6 +23,11 @@ namespace Game
         {
             get { return name; }
             set { name = value; }
+        }
+
+        public string Description
+        {
+            get { return description; }
         }
     }
 }

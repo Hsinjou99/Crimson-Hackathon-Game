@@ -13,7 +13,8 @@ namespace Game
         protected int max_durability;
 
         public AtkCard () {
-            name = "attack";
+            name = "Attack";
+            description = "Deals 3 damage to the opponent's attack cards or HP.";
             card_value = 3;
             color = Color.Red;
             max_durability = 4;

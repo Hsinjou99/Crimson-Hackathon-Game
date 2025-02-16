@@ -105,9 +105,10 @@ namespace Game
                 pictureBox12.BackColor = Color.Black;
             }
         }
+
         public void DisplayActiveCards()
         {
-
+            
         }
 
         public void DisplayHP()
@@ -128,7 +129,13 @@ namespace Game
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            if (Game.turn == 1 && Game.Player.playable.Count >= 1)
+            {
+                textBox3.Text = Game.Player.playable[0].Name + " Card\r\n\r\n" + Game.Player.playable[0].Description + "\r\n\r\nUse this card?";
+                textBox3.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
