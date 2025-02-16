@@ -11,7 +11,7 @@ namespace Game
     {
         private enum CardTypes {
             Atk,
-            Sup,
+            Heal,
             Def
         }
 
@@ -41,10 +41,10 @@ namespace Game
                     AtkCard atk = new AtkCard();
                     this.playable.Add(atk);
                 }
-                else if (randCard == CardTypes.Sup)
+                else if (randCard == CardTypes.Heal)
                 {
-                    SupCard sup = new SupCard();
-                    this.playable.Add(sup);
+                    HealCard heal = new HealCard();
+                    this.playable.Add(heal);
                 }
                 else if (randCard == CardTypes.Def)
                 {
@@ -61,13 +61,15 @@ namespace Game
 
             if (curr.Name == "Attack")
             {
-                played.Add(curr);
+                if (played.Count < 3) { 
+                    played.Add(curr);
+                }
             }
             else if (curr.Name == "Protect")
             {
                 protection = true;
             }
-            else if (curr.Name == "Support")
+            else if (curr.Name == "Heal")
             {
                 hp += curr.CardValue;
                 if (hp > 10)
@@ -90,10 +92,10 @@ namespace Game
                     AtkCard atk = new AtkCard();
                     this.playable.Add(atk);
                 }
-                else if (randCard == CardTypes.Sup)
+                else if (randCard == CardTypes.Heal)
                 {
-                    SupCard sup = new SupCard();
-                    this.playable.Add(sup);
+                    HealCard heal = new HealCard();
+                    this.playable.Add(heal);
                 }
                 else if (randCard == CardTypes.Def)
                 {
