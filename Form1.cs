@@ -40,6 +40,7 @@ namespace Game
                 if (Game.turn == 1)
                 {
                     button1.Visible = true;
+                    button2.Enabled = true;
                     
                 }
 
@@ -125,6 +126,7 @@ namespace Game
         {
             Game.turn = 2;
             button1.Visible = false;
+            button2.Enabled = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -145,7 +147,9 @@ namespace Game
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-
+            textBox3.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
