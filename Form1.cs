@@ -42,8 +42,7 @@ namespace Game
                 button1.Visible = true;
                 button2.Enabled = true;
                 Game.Player.draw_card();
-                Game.Player.play_card(0);
-
+                //Game.Player.play_card(0);
             }
 
             //Computer turn
@@ -51,6 +50,7 @@ namespace Game
             {
                 //Computer makes move
                 Game.turn = 1;
+                Game.Computer.draw_card();
                 Game.Computer.play_card(0);
                 RunGame();
             }
@@ -185,7 +185,9 @@ namespace Game
 
             foreach (Card card in cards)
             {
-                total_dmg += card.CardValue;
+                if (card.Name == "Attack") { 
+                    total_dmg += card.CardValue;
+                }
             }
 
             if (turn == 1)
