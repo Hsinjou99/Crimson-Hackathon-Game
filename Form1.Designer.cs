@@ -327,6 +327,7 @@
             this.button2.Text = "Yes";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -365,7 +366,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1200, 847);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.TopMost = true;
             this.groupBox1.ResumeLayout(false);
