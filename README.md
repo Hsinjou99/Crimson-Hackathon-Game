@@ -1,6 +1,7 @@
 # Matcha Cards
 
 Members: Joanne Lee, Claire Lu  
+*We made a card game for the 2025 Crimson Code Hackathon  
 
 Game Rules:  
 -The player plays against an AI  
