@@ -1,4 +1,4 @@
-# Card Game
+# Matcha Cards
 
 Members: Joanne Lee, Claire Lu  
 
