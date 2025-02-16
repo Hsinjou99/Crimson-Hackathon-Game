@@ -18,6 +18,11 @@ namespace Game
             get { return color; }
         }
 
+        public int CardValue
+        {
+            get { return card_value; }
+        }
+
         public string Name
         {
             get { return name; }

@@ -17,30 +17,32 @@ namespace Game
         public Form1()
         {
             InitializeComponent();
-            DisplayPlayerHand();
-            DisplayComputerHand();
-            DisplayActiveCards();
-            //RunGame();
+            RunGame();
         }
 
         public void RunGame()
         {
-            bool End = false;
             DisplayPlayerHand();
             DisplayComputerHand();
             DisplayActiveCards();
             DisplayHP();
 
-            //while (!End)
+            bool End = false;
+            string winner = "";
+
+            while (!End)
             {
+
                 //One side attacks
                 AttackSequence(Game.turn);
+                DisplayHP();
 
                 //Player turn
                 if (Game.turn == 1)
                 {
                     button1.Visible = true;
-                    
+                    Game.Player.draw_card();
+                    Game.Player.play_card(1);
                 }
 
                 //Computer turn
@@ -49,11 +51,29 @@ namespace Game
                     //Computer makes move
                     Game.turn = 1;
                 }
+
+                //Check win condition
+                //if either hp falls below 1, other wins
+                if (Game.Player.hp < 1)
+                {
+                    End = true;
+                    winner = "Player Wins !!!!";
+                }
+                if (Game.Computer.hp < 1)
+                {
+                    End = true;
+                    winner = "Opponent Wins ....";
+                }
             }
 
+            DisplayWinner(winner);
+            Close();
+        }
 
-            //Check win condition
-            //if either hp falls below 1, other wins
+        private void DisplayWinner(string winner)
+        {
+            MessageBox.Show(winner);
+            return;
         }
 
         private void DisplayPlayerHand()
@@ -84,40 +104,96 @@ namespace Game
         public void DisplayComputerHand()
         {
             //Display computer hand
-            if (Game.computer.playable.Count >= 1)
+            if (Game.Computer.playable.Count >= 1)
             {
                 pictureBox16.BackColor = Color.Black;
             }
-            if (Game.computer.playable.Count >= 2)
+            if (Game.Computer.playable.Count >= 2)
             {
                 pictureBox15.BackColor = Color.Black;
             }
-            if (Game.computer.playable.Count >= 3)
+            if (Game.Computer.playable.Count >= 3)
             {
                 pictureBox14.BackColor = Color.Black;
             }
-            if (Game.computer.playable.Count >= 4)
+            if (Game.Computer.playable.Count >= 4)
             {
                 pictureBox13.BackColor = Color.Black;
             }
-            if (Game.computer.playable.Count == 5)
+            if (Game.Computer.playable.Count == 5)
             {
                 pictureBox12.BackColor = Color.Black;
             }
         }
+
         public void DisplayActiveCards()
         {
+            //Display active computer cards
+            if (Game.Computer.played.Count >= 1)
+            {
+                pictureBox16.BackColor = Game.Computer.played[0].CardColor;
+            }
+            if (Game.Computer.played.Count >= 2)
+            {
+                pictureBox15.BackColor = Game.Computer.played[1].CardColor;
+            }
+            if (Game.Computer.played.Count == 3)
+            {
+                pictureBox14.BackColor = Game.Computer.played[2].CardColor;
+            }
 
+            //Display active player cards
+            if (Game.Player.played.Count >= 1)
+            {
+                pictureBox16.BackColor = Game.Player.played[0].CardColor;
+            }
+            if (Game.Player.played.Count >= 2)
+            {
+                pictureBox15.BackColor = Game.Player.played[1].CardColor;
+            }
+            if (Game.Player.played.Count == 3)
+            {
+                pictureBox14.BackColor = Game.Player.played[2].CardColor;
+            }
         }
 
         public void DisplayHP()
         {
-            //textBox1.Text = "Computer HP: " + Game.computer.Hp;
-            //textBox2.Text = "Player HP: " + Game.Player.Hp;
+            textBox1.Text = "Computer HP: " + Game.Computer.hp;
+            textBox2.Text = "Player HP: " + Game.Player.hp;
         }
+
         public void AttackSequence(int turn)
         {
+            List<Card> cards;
+            if (turn == 1)
+            {
+                cards = Game.Player.played;
+            }
+            else if (turn == 2)
+            {
+                cards = Game.Computer.played;
+            }
+            else return;
 
+            int total_dmg = 0;
+
+            foreach (Card card in cards)
+            {
+                total_dmg += card.CardValue;
+            }
+
+            if (turn == 1)
+            {
+                Game.Player.hp -= total_dmg;
+                if (Game.Player.hp < 0) { Game.Player.hp = 0; }
+            }
+            else if (turn == 2)
+            {
+                Game.Computer.hp -= total_dmg;
+                if (Game.Computer.hp < 0) { Game.Computer.hp = 0; }
+            }
+            else return;
         }
 
         private void button1_Click(object sender, EventArgs e)
