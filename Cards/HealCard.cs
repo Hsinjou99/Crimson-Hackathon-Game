@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    internal class SupCard : Card
+    internal class HealCard : Card
     {
-        public SupCard () {
-            name = "Support";
-            description = "Heals one attack card to full durability.";
+        public HealCard () {
+            name = "Heal";
+            description = "Heals player by 5.";
             color = Color.Green;
             card_value = 5;
         }

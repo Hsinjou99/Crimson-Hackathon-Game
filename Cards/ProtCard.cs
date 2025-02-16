@@ -15,7 +15,6 @@ namespace Game
             name = "Protect";
             description = "Blocks all damage for one turn.";
             color = Color.Blue;
-            card_value = 10;
         }
 
         public int Durability {

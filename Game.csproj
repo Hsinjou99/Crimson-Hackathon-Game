@@ -52,7 +52,7 @@
     <Compile Include="Cards\MeleeCard.cs" />
     <Compile Include="Cards\ProtCard.cs" />
     <Compile Include="Cards\RangedCard.cs" />
-    <Compile Include="Cards\SupCard.cs" />
+    <Compile Include="Cards\HealCard.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
