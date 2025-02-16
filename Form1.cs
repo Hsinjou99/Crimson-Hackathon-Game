@@ -225,6 +225,7 @@ namespace Game
                 textBox3.Visible = true;
                 button2.Visible = true;
                 button3.Visible = true;
+                button2.Tag = "0";
             }
         }
 
@@ -236,6 +237,7 @@ namespace Game
                 textBox3.Visible = true;
                 button2.Visible = true;
                 button3.Visible = true;
+                button2.Tag = "1";
             }
         }
 
@@ -247,6 +249,7 @@ namespace Game
                 textBox3.Visible = true;
                 button2.Visible = true;
                 button3.Visible = true;
+                button2.Tag = "2";
             }
         }
 
@@ -258,6 +261,7 @@ namespace Game
                 textBox3.Visible = true;
                 button2.Visible = true;
                 button3.Visible = true;
+                button2.Tag = "3";
             }
         }
 
@@ -269,6 +273,7 @@ namespace Game
                 textBox3.Visible = true;
                 button2.Visible = true;
                 button3.Visible = true;
+                button2.Tag = "4";
             }
 
         }
@@ -278,6 +283,16 @@ namespace Game
             textBox3.Visible = false;
             button2.Visible = false;
             button3.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Game.Player.play_card(int.Parse(button2.Tag.ToString()));
+            textBox3.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            DisplayPlayerHand();
+            DisplayActiveCards();
         }
     }
 }
