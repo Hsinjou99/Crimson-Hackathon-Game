@@ -15,21 +15,27 @@ namespace Game
         public Form1()
         {
             InitializeComponent();
-            
-            Board Board = new Board();
+            RunGame();
+        }
 
-            //for (int index = 0; index < 5; index++)
+        public void RunGame()
+        {
+            Board Board = new Board();
+            bool End = false;
+
+            while (!End)
             {
-                Card card = Board.Player.playable[0];
-                if ( card != null)
+                
+                Card card1 = Board.Player.playable[0];
+                if (card1 != null)
                 {
                     pictureBox1.BackColor = Color.Black;
                 }
             }
             pictureBox1.BackColor = Color.Black;
             //game.RunGame();
-        }
 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 

@@ -16,9 +16,9 @@ namespace Game
         }
 
         public Player Player;
-        private Player computer;
-        private bool volcanoState;
-        private int turn;
+        public Player computer;
+        public bool volcanoState;
+        public int turn;
 
         public Board()
         {
