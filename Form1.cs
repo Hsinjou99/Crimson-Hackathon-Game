@@ -42,7 +42,7 @@ namespace Game
                 button1.Visible = true;
                 button2.Enabled = true;
                 Game.Player.draw_card();
-                Game.Player.play_card(0);
+                //Game.Player.play_card(0);
 
             }
 
@@ -222,21 +222,46 @@ namespace Game
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            if (Game.Player.playable.Count >= 2)
+            {
+                textBox3.Text = Game.Player.playable[1].Name + " Card\r\n\r\n" + Game.Player.playable[1].Description + "\r\n\r\nUse this card?";
+                textBox3.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            
+            if (Game.Player.playable.Count >= 3)
+            {
+                textBox3.Text = Game.Player.playable[2].Name + " Card\r\n\r\n" + Game.Player.playable[2].Description + "\r\n\r\nUse this card?";
+                textBox3.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+            }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-
+            if (Game.Player.playable.Count >= 4)
+            {
+                textBox3.Text = Game.Player.playable[3].Name + " Card\r\n\r\n" + Game.Player.playable[3].Description + "\r\n\r\nUse this card?";
+                textBox3.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+            }
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            if (Game.Player.playable.Count >= 5)
+            {
+                textBox3.Text = Game.Player.playable[4].Name + " Card\r\n\r\n" + Game.Player.playable[4].Description + "\r\n\r\nUse this card?";
+                textBox3.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+            }
 
         }
 
