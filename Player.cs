@@ -21,16 +21,16 @@ namespace Game
             return (T)v.GetValue(R.Next(v.Length));
         }
 
-        private int hp;
+        public int hp;
         public List<Card> playable;
-        private List<Card> played;
+        public List<Card> played;
 
         public Player()
         {
             this.hp = 10;
 
-            playable = new List<Card>();
-            played = new List<Card>();
+            this.playable = new List<Card>();
+            this.played = new List<Card>();
 
             for (int indexer = 0; indexer < 4; indexer++) {
                 CardTypes randCard = RandomEnumValue<CardTypes>();

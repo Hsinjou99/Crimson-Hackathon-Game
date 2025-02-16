@@ -17,6 +17,9 @@ namespace Game
         public Form1()
         {
             InitializeComponent();
+            DisplayPlayerHand();
+            DisplayComputerHand();
+            DisplayActiveCards();
             //RunGame();
         }
 
@@ -76,14 +79,31 @@ namespace Game
             {
                 pictureBox5.BackColor = Game.Player.playable[4].CardColor;
             }
-
-            //
-
         }
 
         public void DisplayComputerHand()
         {
-            
+            //Display computer hand
+            if (Game.computer.playable.Count >= 1)
+            {
+                pictureBox16.BackColor = Color.Black;
+            }
+            if (Game.computer.playable.Count >= 2)
+            {
+                pictureBox15.BackColor = Color.Black;
+            }
+            if (Game.computer.playable.Count >= 3)
+            {
+                pictureBox14.BackColor = Color.Black;
+            }
+            if (Game.computer.playable.Count >= 4)
+            {
+                pictureBox13.BackColor = Color.Black;
+            }
+            if (Game.computer.playable.Count == 5)
+            {
+                pictureBox12.BackColor = Color.Black;
+            }
         }
         public void DisplayActiveCards()
         {
