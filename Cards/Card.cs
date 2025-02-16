@@ -13,6 +13,11 @@ namespace Game
         protected int card_value;
         protected Color color;
 
+        public Color CardColor
+        {
+            get { return color; }
+        }
+
         public string Name
         {
             get { return name; }
