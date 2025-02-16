@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace Game
     {
         public SupCard () {
             name = "support";
+            color = Color.Green;
             card_value = 5;
         }
 

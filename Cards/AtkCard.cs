@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Game
         public AtkCard () {
             name = "attack";
             card_value = 3;
+            color = Color.Red;
             max_durability = 4;
             durability = max_durability;
         }

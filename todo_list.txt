@@ -1,0 +1,10 @@
+1. display cards in player and computer deck (hand)
+2. display cards that are played
+3. get turns to work
+4. hp/atk interaction with player
+5. card activation
+
+if theres time:
+1. make environment
+2. make more cards
+3. when end turn: computer places 1 or 2 random cards in hand
