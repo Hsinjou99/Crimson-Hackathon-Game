@@ -84,6 +84,14 @@ namespace Game
         private void DisplayPlayerHand()
         {
             //Display player hand
+            if (Game.Player.playable.Count >= 0)
+            {
+                pictureBox16.BackColor = Control.DefaultBackColor;
+                pictureBox15.BackColor = Control.DefaultBackColor;
+                pictureBox14.BackColor = Control.DefaultBackColor;
+                pictureBox13.BackColor = Control.DefaultBackColor;
+                pictureBox12.BackColor = Control.DefaultBackColor;
+            }
             if (Game.Player.playable.Count >= 1)
             {
                 pictureBox1.BackColor = Game.Player.playable[0].CardColor;
@@ -119,6 +127,14 @@ namespace Game
         public void DisplayComputerHand()
         {
             //Display computer hand
+            if (Game.Computer.playable.Count >= 0)
+            {
+                pictureBox16.BackColor = Control.DefaultBackColor;
+                pictureBox15.BackColor = Control.DefaultBackColor;
+                pictureBox14.BackColor = Control.DefaultBackColor;
+                pictureBox13.BackColor = Control.DefaultBackColor;
+                pictureBox12.BackColor = Control.DefaultBackColor;
+            }
             if (Game.Computer.playable.Count >= 1)
             {
                 pictureBox16.BackColor = Color.Black;
@@ -212,15 +228,24 @@ namespace Game
 
             if (turn == 1)
             {
-                if (!Game.Computer.protection)
+                if (Game.Computer.protection)
+                {
+                    Game.Computer.protection = false;
+                }
+                else
                 {
                     Game.Computer.hp -= total_dmg;
                 }
+
                 if (Game.Computer.hp < 0) { Game.Computer.hp = 0; }
             }
             else if (turn == 2)
             {
-                if (!Game.Player.protection)
+                if (Game.Player.protection)
+                {
+                    Game.Player.protection = false;
+                }
+                else
                 {
                     Game.Player.hp -= total_dmg;
                 }
