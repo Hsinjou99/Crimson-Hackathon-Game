@@ -10,7 +10,7 @@ namespace Game
     {
         public MeleeCard(string cardName, int atk, int dur) {
             this.name = cardName;
-            this.attack_value = atk;
+            //this.attack_value = atk;
             this.durability = dur;
             this.max_durability = dur;
         }

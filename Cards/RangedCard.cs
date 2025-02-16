@@ -11,7 +11,7 @@ namespace Game
         public RangedCard(string cardName, int atk, int dur)
         {
             this.name = cardName;
-            this.attack_value = atk;
+            //this.attack_value = atk;
             this.max_durability = dur;
             this.durability = max_durability;
         }

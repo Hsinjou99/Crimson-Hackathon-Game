@@ -22,26 +22,32 @@ namespace Game
         }
 
         private int hp;
-        private List<Card> playable;
+        public List<Card> playable;
         private List<Card> played;
 
         public Player()
         {
             this.hp = 10;
 
+            playable = new List<Card>();
+            played = new List<Card>();
+
             for (int indexer = 0; indexer < 4; indexer++) {
                 CardTypes randCard = RandomEnumValue<CardTypes>();
                 if (randCard == CardTypes.Atk)
                 {
-                    this.playable.Add(new AtkCard());
+                    AtkCard atk = new AtkCard();
+                    this.playable.Add(atk);
                 }
                 else if (randCard == CardTypes.Sup)
                 {
-                    this.playable.Add(new SupCard());
+                    SupCard sup = new SupCard();
+                    this.playable.Add(sup);
                 }
                 else if (randCard == CardTypes.Def)
                 {
-                    this.playable.Add(new ProtCard());
+                    ProtCard prot = new ProtCard();
+                    this.playable.Add(prot);
                 }
             }
         }

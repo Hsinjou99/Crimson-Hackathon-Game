@@ -15,17 +15,18 @@ namespace Game
             Rain
         }
 
-        private Player player;
+        public Player Player;
         private Player computer;
         private bool volcanoState;
         private int turn;
 
         public Board()
         {
-            player = new Player();
+            Player = new Player();
             computer = new Player();
             volcanoState = false;
             turn = 1;
+
         }
 
 
