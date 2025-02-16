@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,6 +23,7 @@ namespace Game
         }
 
         public int hp;
+        public bool protection = false;
         public List<Card> playable;
         public List<Card> played;
 
@@ -55,8 +57,24 @@ namespace Game
         public void play_card(int card)
         {
             Card curr = playable[card];
-            played.Add(curr);
             playable.RemoveAt(card);
+
+            if (curr.Name == "Attack")
+            {
+                played.Add(curr);
+            }
+            else if (curr.Name == "Protect")
+            {
+                protection = true;
+            }
+            else if (curr.Name == "Support")
+            {
+                hp += curr.CardValue;
+                if (hp > 10)
+                {
+                    hp = 10;
+                }
+            }
         }
 
         public void draw_card()

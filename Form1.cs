@@ -42,7 +42,6 @@ namespace Game
                 button1.Visible = true;
                 button2.Enabled = true;
                 Game.Player.draw_card();
-                //Game.Player.play_card(0);
 
             }
 
@@ -51,6 +50,7 @@ namespace Game
             {
                 //Computer makes move
                 Game.turn = 1;
+                Game.Computer.draw_card();
                 Game.Computer.play_card(0);
                 RunGame();
             }
@@ -185,17 +185,25 @@ namespace Game
 
             foreach (Card card in cards)
             {
-                total_dmg += card.CardValue;
+                if (card.Name == "Attack") { 
+                    total_dmg += card.CardValue;
+                }
             }
 
             if (turn == 1)
             {
-                Game.Computer.hp -= total_dmg;
+                if (!Game.Computer.protection)
+                {
+                    Game.Computer.hp -= total_dmg;
+                }
                 if (Game.Computer.hp < 0) { Game.Computer.hp = 0; }
             }
             else if (turn == 2)
             {
-                Game.Player.hp -= total_dmg;
+                if (!Game.Player.protection)
+                {
+                    Game.Player.hp -= total_dmg;
+                }
                 if (Game.Player.hp < 0) { Game.Player.hp = 0; }
             }
             else return;
