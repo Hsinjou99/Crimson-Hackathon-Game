@@ -30,7 +30,7 @@ namespace Game
             bool End = false;
             string winner = "";
 
-            while (!End)
+            //while (!End)
             {
 
                 //One side attacks
@@ -42,7 +42,7 @@ namespace Game
                 {
                     button1.Visible = true;
                     Game.Player.draw_card();
-                    Game.Player.play_card(1);
+                    //Game.Player.play_card(1);
 
                 }
 
@@ -67,8 +67,11 @@ namespace Game
                 }
             }
 
-            DisplayWinner(winner);
-            Close();
+            if (End)
+            {
+                DisplayWinner(winner);
+            }
+            //Close();
         }
 
         private void DisplayWinner(string winner)
@@ -206,7 +209,7 @@ namespace Game
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (Game.turn == 1 && Game.Player.playable.Count >= 1)
+            if (Game.Player.playable.Count >= 1)
             {
                 textBox3.Text = Game.Player.playable[0].Name + " Card\r\n\r\n" + Game.Player.playable[0].Description + "\r\n\r\nUse this card?";
                 textBox3.Visible = true;
@@ -222,9 +225,7 @@ namespace Game
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            textBox3.Visible = false;
-            button2.Visible = false;
-            button3.Visible = false;
+            
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -235,6 +236,13 @@ namespace Game
         private void pictureBox5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox3.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
         }
     }
 }

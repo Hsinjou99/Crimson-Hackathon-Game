@@ -34,7 +34,6 @@ namespace Game
 
             for (int indexer = 0; indexer < 4; indexer++) {
                 CardTypes randCard = RandomEnumValue<CardTypes>();
-                randCard = CardTypes.Atk;
                 if (randCard == CardTypes.Atk)
                 {
                     AtkCard atk = new AtkCard();
