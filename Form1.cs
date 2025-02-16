@@ -192,12 +192,18 @@ namespace Game
 
             if (turn == 1)
             {
-                Game.Computer.hp -= total_dmg;
+                if (!Game.Computer.protection)
+                {
+                    Game.Computer.hp -= total_dmg;
+                }
                 if (Game.Computer.hp < 0) { Game.Computer.hp = 0; }
             }
             else if (turn == 2)
             {
-                Game.Player.hp -= total_dmg;
+                if (!Game.Player.protection)
+                {
+                    Game.Player.hp -= total_dmg;
+                }
                 if (Game.Player.hp < 0) { Game.Player.hp = 0; }
             }
             else return;
