@@ -22,10 +22,6 @@ namespace Game
 
         public void RunGame()
         {
-            DisplayPlayerHand();
-            DisplayComputerHand();
-            DisplayActiveCards();
-            DisplayHP();
 
 
             bool End = false;
@@ -34,6 +30,9 @@ namespace Game
 
             //One side attacks
             AttackSequence(Game.turn);
+            DisplayPlayerHand();
+            DisplayComputerHand();
+            DisplayActiveCards();
             DisplayHP();
 
             //Player turn
@@ -42,6 +41,7 @@ namespace Game
                 button1.Visible = true;
                 button2.Enabled = true;
                 Game.Player.draw_card();
+                DisplayPlayerHand();
 
             }
 
