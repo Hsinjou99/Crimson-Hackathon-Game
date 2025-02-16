@@ -27,51 +27,52 @@ namespace Game
             DisplayActiveCards();
             DisplayHP();
 
+
             bool End = false;
             string winner = "";
 
-            //while (!End)
+
+            //One side attacks
+            AttackSequence(Game.turn);
+            DisplayHP();
+
+            //Player turn
+            if (Game.turn == 1)
             {
+                button1.Visible = true;
+                button2.Enabled = true;
+                Game.Player.draw_card();
+                Game.Player.play_card(0);
 
-                //One side attacks
-                AttackSequence(Game.turn);
-                DisplayHP();
+            }
 
-                //Player turn
-                if (Game.turn == 1)
-                {
-                    button1.Visible = true;
-                    Game.Player.draw_card();
-                    //Game.Player.play_card(1);
+            //Computer turn
+            else if (Game.turn == 2)
+            {
+                //Computer makes move
+                Game.turn = 1;
+                Game.Computer.play_card(0);
+                RunGame();
+            }
 
-                }
-
-                //Computer turn
-                else if (Game.turn == 2)
-                {
-                    //Computer makes move
-                    Game.turn = 1;
-                }
-
-                //Check win condition
-                //if either hp falls below 1, other wins
-                if (Game.Player.hp < 1)
-                {
-                    End = true;
-                    winner = "Player Wins !!!!";
-                }
-                if (Game.Computer.hp < 1)
-                {
-                    End = true;
-                    winner = "Opponent Wins ....";
-                }
+            //Check win condition
+            //if either hp falls below 1, other wins
+            if (Game.Player.hp < 1)
+            {
+                End = true;
+                winner = "Opponent Wins ....";
+            }
+            if (Game.Computer.hp < 1)
+            {
+                End = true;
+                winner = "Player Wins !!!!";
             }
 
             if (End)
             {
                 DisplayWinner(winner);
+                Close();
             }
-            //Close();
         }
 
         private void DisplayWinner(string winner)
@@ -135,29 +136,29 @@ namespace Game
             //Display active computer cards
             if (Game.Computer.played.Count >= 1)
             {
-                pictureBox16.BackColor = Game.Computer.played[0].CardColor;
+                pictureBox11.BackColor = Game.Computer.played[0].CardColor;
             }
             if (Game.Computer.played.Count >= 2)
             {
-                pictureBox15.BackColor = Game.Computer.played[1].CardColor;
+                pictureBox10.BackColor = Game.Computer.played[1].CardColor;
             }
             if (Game.Computer.played.Count == 3)
             {
-                pictureBox14.BackColor = Game.Computer.played[2].CardColor;
+                pictureBox9.BackColor = Game.Computer.played[2].CardColor;
             }
 
             //Display active player cards
             if (Game.Player.played.Count >= 1)
             {
-                pictureBox16.BackColor = Game.Player.played[0].CardColor;
+                pictureBox6.BackColor = Game.Player.played[0].CardColor;
             }
             if (Game.Player.played.Count >= 2)
             {
-                pictureBox15.BackColor = Game.Player.played[1].CardColor;
+                pictureBox7.BackColor = Game.Player.played[1].CardColor;
             }
             if (Game.Player.played.Count == 3)
             {
-                pictureBox14.BackColor = Game.Player.played[2].CardColor;
+                pictureBox8.BackColor = Game.Player.played[2].CardColor;
             }
         }
 
@@ -189,13 +190,13 @@ namespace Game
 
             if (turn == 1)
             {
-                Game.Player.hp -= total_dmg;
-                if (Game.Player.hp < 0) { Game.Player.hp = 0; }
+                Game.Computer.hp -= total_dmg;
+                if (Game.Computer.hp < 0) { Game.Computer.hp = 0; }
             }
             else if (turn == 2)
             {
-                Game.Computer.hp -= total_dmg;
-                if (Game.Computer.hp < 0) { Game.Computer.hp = 0; }
+                Game.Player.hp -= total_dmg;
+                if (Game.Player.hp < 0) { Game.Player.hp = 0; }
             }
             else return;
         }
@@ -205,6 +206,7 @@ namespace Game
             Game.turn = 2;
             button1.Visible = false;
             button2.Enabled = false;
+            RunGame();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
