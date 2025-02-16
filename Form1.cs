@@ -22,8 +22,6 @@ namespace Game
 
         public void RunGame()
         {
-
-
             bool End = false;
             string winner = "";
 
@@ -68,6 +66,7 @@ namespace Game
                 winner = "Player Wins !!!!";
             }
 
+            //Closes application
             if (End)
             {
                 DisplayWinner(winner);
@@ -188,6 +187,7 @@ namespace Game
             textBox2.Text = "Player HP: " + Game.Player.hp;
         }
 
+        //Deals damage to Player or Computer depending on whose turn it is.
         public void AttackSequence(int turn)
         {
             List<Card> cards;
@@ -229,6 +229,7 @@ namespace Game
             else return;
         }
 
+        //Ends Player's turn and starts Computer's turn.
         private void button1_Click(object sender, EventArgs e)
         {
             Game.turn = 2;
@@ -237,6 +238,7 @@ namespace Game
             RunGame();
         }
 
+        //The 1st card in Player's hand. Clicking it brings card info for card 5 and options to use it.
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (Game.Player.playable.Count >= 1)
@@ -249,6 +251,7 @@ namespace Game
             }
         }
 
+        //The 2nd card in Player's hand. Clicking it brings card info for card 5 and options to use it.
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             if (Game.Player.playable.Count >= 2)
@@ -261,6 +264,7 @@ namespace Game
             }
         }
 
+        //The 3rd card in Player's hand. Clicking it brings card info for card 5 and options to use it.
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             if (Game.Player.playable.Count >= 3)
@@ -273,6 +277,7 @@ namespace Game
             }
         }
 
+        //The 4th card in Player's hand. Clicking it brings card info for card 5 and options to use it.
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             if (Game.Player.playable.Count >= 4)
@@ -285,6 +290,7 @@ namespace Game
             }
         }
 
+        //The 5th card in Player's hand. Clicking it brings card info for card 5 and options to use it.
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             if (Game.Player.playable.Count >= 5)
@@ -298,6 +304,7 @@ namespace Game
 
         }
 
+        //The "No" for placing cards. Removes the textbox and button options.
         private void button3_Click(object sender, EventArgs e)
         {
             textBox3.Visible = false;
@@ -305,6 +312,7 @@ namespace Game
             button3.Visible = false;
         }
 
+        //The "Yes" for placing cards. Uses the selected card.
         private void button2_Click(object sender, EventArgs e)
         {
             Game.Player.play_card(int.Parse(button2.Tag.ToString()));
